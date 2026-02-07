@@ -24,10 +24,10 @@ export default function RoseMessage({ roseIndex, message, onBack }: RoseMessageP
   }, [displayedText, message]);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-background via-purple-100 to-pink-100 flex items-center justify-center p-4">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 right-20 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
+    <main className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 pointer-events-none opacity-30">
+        <div className="absolute top-0 -left-40 w-96 h-96 bg-gradient-to-br from-primary/30 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-gradient-to-tl from-accent/30 to-transparent rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-2xl w-full">
@@ -157,52 +157,49 @@ export default function RoseMessage({ roseIndex, message, onBack }: RoseMessageP
         </div>
 
         {/* Message card */}
-        <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 backdrop-blur-sm bg-opacity-95 border border-accent border-opacity-30">
+        <div className="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-16 backdrop-blur-md border border-white/50 max-w-2xl">
+          {/* Top decoration */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
-              Rose #{roseIndex + 1}
-            </h2>
-            <div className="flex justify-center gap-1">
-              {[...Array(3)].map((_, i) => (
-                <span key={i} className="text-2xl animate-bounce" style={{ animationDelay: `${i * 0.1}s` }}>
+            <div className="inline-flex gap-2 mb-6">
+              {[...Array(5)].map((_, i) => (
+                <span key={i} className="text-2xl animate-bounce" style={{ animationDelay: `${i * 0.15}s` }}>
                   🌹
                 </span>
               ))}
             </div>
+            <h2 className="text-sm font-semibold text-primary uppercase tracking-widest">
+              Message {roseIndex + 1} of 16
+            </h2>
           </div>
 
           {/* Message text with typing animation */}
-          <div className="min-h-32 md:min-h-40">
-            <p className="text-lg md:text-xl leading-relaxed text-foreground text-center">
+          <div className="min-h-48 flex items-center justify-center mb-8">
+            <p className="text-lg md:text-xl leading-loose text-foreground text-center font-light">
               {displayedText}
-              {!isComplete && <span className="animate-pulse">|</span>}
+              {!isComplete && <span className="animate-pulse text-primary text-2xl">|</span>}
             </p>
           </div>
 
+          {/* Divider */}
+          <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8"></div>
+
           {/* Button group */}
-          <div className="flex gap-4 mt-12 justify-center flex-wrap">
+          <div className="flex gap-3 justify-center flex-wrap">
             <button
               onClick={onBack}
-              className="px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 active:scale-95"
+              className="px-6 py-3 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
             >
               Back to Garden
             </button>
             {isComplete && (
               <button
                 onClick={onBack}
-                className="px-8 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 active:scale-95"
               >
-                Next Rose 🌹
+                Next Rose
               </button>
             )}
           </div>
-        </div>
-
-        {/* Decorative elements */}
-        <div className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            ✨ Message {roseIndex + 1} of 16 ✨
-          </p>
         </div>
       </div>
     </main>

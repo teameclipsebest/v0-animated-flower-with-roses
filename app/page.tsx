@@ -31,35 +31,49 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-background via-purple-100 to-pink-100 overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 right-20 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-primary rounded-full blur-3xl opacity-20"></div>
+    <main className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 overflow-hidden">
+      {/* Animated background elements */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 -left-40 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-gradient-to-tl from-accent/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative z-10">
-        <div className="pt-8 pb-12 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-2">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-rose-500 to-pink-600">
-              Happy Rose Day
-            </span>
-          </h1>
-          <p className="text-xl md:text-2xl text-foreground mt-4 font-light">
-            Dear Pooja 🌹
-          </p>
-          <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto px-4">
-            Click on each rose to discover the feelings I&apos;ve been wanting to share with you
-          </p>
+        {/* Header section */}
+        <header className="pt-12 pb-8 text-center px-4">
+          <div className="mb-6 inline-block">
+            <h1 className="text-6xl md:text-7xl font-bold mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-pink-600">
+                Happy Rose Day
+              </span>
+            </h1>
+          </div>
+
+          <div className="space-y-4">
+            <p className="text-2xl md:text-3xl font-semibold text-foreground">
+              For Pooja 🌹
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
+              I know words don't always come easy to me, but you make everything feel possible. Here are 16 roses, each holding a piece of my heart and the feelings I want you to know.
+            </p>
+          </div>
+        </header>
+
+        {/* Rose garden */}
+        <div className="py-8">
+          <RoseGarden onSelectRose={setSelectedRose} />
         </div>
 
-        <RoseGarden onSelectRose={setSelectedRose} />
-
-        <div className="text-center mt-12 pb-8">
-          <p className="text-sm text-muted-foreground">
-            ✨ There are {messages.length} roses with special messages for you ✨
+        {/* Footer */}
+        <footer className="text-center py-12">
+          <p className="text-sm md:text-base text-muted-foreground mb-2">
+            Click on each rose to read a special message
           </p>
-        </div>
+          <p className="text-xs text-muted-foreground">
+            ✨ {messages.length} roses × infinite feelings ✨
+          </p>
+        </footer>
       </div>
     </main>
   );

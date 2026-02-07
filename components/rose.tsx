@@ -10,13 +10,10 @@ export default function Rose({ index }: RoseProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <button
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
+    <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative w-24 h-32 md:w-28 md:h-40 focus:outline-none transition-transform duration-300 hover:scale-110"
+      className="group relative w-24 h-32 md:w-28 md:h-40 transition-transform duration-300 cursor-pointer"
     >
       <svg
         viewBox="0 0 100 140"
@@ -187,6 +184,6 @@ export default function Rose({ index }: RoseProps) {
           ❤️
         </div>
       )}
-    </button>
+    </div>
   );
 }
