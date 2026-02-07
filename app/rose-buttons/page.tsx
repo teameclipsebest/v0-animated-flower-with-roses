@@ -33,9 +33,22 @@ export default function RoseButtonsPage() {
           perspective: 1000px;
         }
         
+        .page-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          overflow: hidden;
+          background-color: var(--dark-color);
+        }
+        
         .title {
           position: absolute;
           top: 30px;
+          left: 50%;
+          transform: translateX(-50%);
           font-size: 45px;
           color: white;
           z-index: 999;
@@ -803,65 +816,61 @@ export default function RoseButtonsPage() {
           }
         }
       `}</style>
-      <div className="night"></div>
-      <h1 className="title">Rose Buttons</h1>
-      <div className="flowers">
-        {[1, 2, 3].map((roseNum) => (
-          <button
-            key={roseNum}
-            className={`flower flower--${roseNum}`}
-            onClick={() => handleRoseClick(roseNum)}
-          >
-            <div className="flower__line">
-              {[1, 2, 3, 4, 5, 6].map((leafNum) => (
-                <div
-                  key={leafNum}
-                  className={`flower__line__leaf flower__line__leaf--${leafNum}`}
-                ></div>
-              ))}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((lightNum) => (
-                <div
-                  key={lightNum}
-                  className={`flower__light flower__light--${lightNum}`}
-                ></div>
-              ))}
-            </div>
-            <div className="flower__grass flower__grass--1">
-              <div className="flower__grass--top"></div>
-              <div className="flower__grass--bottom">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((leafNum) => (
+      <div className="page-wrapper">
+        <div className="night"></div>
+        <h1 className="title">Rose Buttons</h1>
+        <div className="flowers">
+          {[1, 2, 3].map((roseNum) => (
+            <button
+              key={roseNum}
+              className={`flower flower--${roseNum}`}
+              onClick={() => handleRoseClick(roseNum)}
+            >
+              <div className="flower__line">
+                {[1, 2, 3, 4, 5, 6].map((leafNum) => (
                   <div
                     key={leafNum}
-                    className={`flower__grass__leaf flower__grass__leaf--${leafNum}`}
+                    className={`flower__line__leaf flower__line__leaf--${leafNum}`}
                   ></div>
                 ))}
-                <div className="flower__grass__overlay"></div>
               </div>
-            </div>
-            <div className="flower__grass flower__grass--2">
-              <div className="flower__grass--top"></div>
-              <div className="flower__grass--bottom"></div>
-            </div>
-            <div className="flower__g-long">
-              <div className="flower__g-long__top"></div>
-              <div className="flower__g-long__bottom"></div>
-            </div>
-            <div className="flower__g-right flower__g-right--1">
-              <div className="leaf"></div>
-            </div>
-            <div className="flower__g-right flower__g-right--2">
-              <div className="leaf"></div>
-            </div>
-            {[1, 2, 3].map((leafNum) => (
-              <div key={leafNum} className={`flower__leafs flower__leafs--${leafNum}`}>
-                {[1, 2, 3, 4].map((petNum) => (
-                  <div key={petNum} className={`flower__leaf flower__leaf--${petNum}`}></div>
-                ))}
-                <div className="flower__white-circle"></div>
+              <div className="flower__grass flower__grass--1">
+                <div className="flower__grass--top"></div>
+                <div className="flower__grass--bottom">
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((leafNum) => (
+                    <div
+                      key={leafNum}
+                      className={`flower__grass__leaf flower__grass__leaf--${leafNum}`}
+                    ></div>
+                  ))}
+                  <div className="flower__grass__overlay"></div>
+                </div>
               </div>
-            ))}
-          </button>
+              <div className="flower__grass flower__grass--2">
+                <div className="flower__grass--top"></div>
+                <div className="flower__grass--bottom"></div>
+              </div>
+              <div className="flower__g-long">
+                <div className="flower__g-long__top"></div>
+                <div className="flower__g-long__bottom"></div>
+              </div>
+              <div className="flower__g-right flower__g-right--1">
+                <div className="leaf"></div>
+              </div>
+              <div className="flower__g-right flower__g-right--2">
+                <div className="leaf"></div>
+              </div>
+              {[1, 2, 3].map((leafNum) => (
+                <div key={leafNum} className={`flower__leafs flower__leafs--${leafNum}`}>
+                  {[1, 2, 3, 4].map((petNum) => (
+                    <div key={petNum} className={`flower__leaf flower__leaf--${petNum}`}></div>
+                  ))}
+                  <div className="flower__white-circle"></div>
+                </div>
+              ))}
+            </button>
         ))}
+        </div>
       </div>
     </>
   );
