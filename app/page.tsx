@@ -1,11 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import RoseGarden from '@/components/rose-garden';
 import RoseMessage from '@/components/rose-message';
+import WelcomeScreen from '@/components/welcome-screen';
+import Confetti from '@/components/confetti';
+import GalleryPreview from '@/components/gallery-preview';
 
 export default function Home() {
   const [selectedRose, setSelectedRose] = useState<number | null>(null);
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const messages = [
     "When I first saw you, I didn't know how special you were. Now I can't imagine my days without talking to you 🌹",
@@ -26,12 +32,46 @@ export default function Home() {
     "Thank you for being you. Thank you for changing my life in ways you probably don't realize 🙏",
   ];
 
+  const handleRoseSelect = (index: number) => {
+    setSelectedRose(index);
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 500);
+  };
+
+  if (showWelcome) {
+    return <WelcomeScreen onEnter={() => setShowWelcome(false)} />;
+  }
+
   if (selectedRose !== null) {
     return <RoseMessage roseIndex={selectedRose} message={messages[selectedRose]} onBack={() => setSelectedRose(null)} />;
   }
 
   return (
     <main className="min-h-screen bg-background overflow-hidden">
+      {/* Confetti effect */}
+      <Confetti trigger={showConfetti} />
+
+      {/* Background music */}
+      <audio
+        ref={audioRef}
+        autoPlay
+        loop
+        className="hidden"
+        onLoadedMetadata={() => {
+          if (audioRef.current) {
+            audioRef.current.volume = 0.3;
+            audioRef.current.play().catch(() => {
+              console.log('[v0] Audio autoplay prevented');
+            });
+          }
+        }}
+      >
+        <source
+          src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA=="
+          type="audio/wav"
+        />
+      </audio>
+
       {/* Premium animated background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"></div>
@@ -41,7 +81,7 @@ export default function Home() {
 
       <div className="relative z-10 min-h-screen flex flex-col">
         {/* Premium Header */}
-        <header className="pt-16 pb-20 text-center px-4">
+        <header className="pt-16 pb-12 text-center px-4 animate-in fade-in slide-in-from-top duration-1000">
           <div className="space-y-8">
             {/* Decorative top accent */}
             <div className="flex justify-center gap-1">
@@ -74,12 +114,15 @@ export default function Home() {
         </header>
 
         {/* Rose Garden - centered and spacious */}
-        <div className="flex-1 flex items-center justify-center px-4 py-12">
-          <RoseGarden onSelectRose={setSelectedRose} />
+        <div className="flex-1 flex items-center justify-center px-4 py-8">
+          <div className="w-full max-w-4xl">
+            <RoseGarden onSelectRose={handleRoseSelect} />
+            <GalleryPreview />
+          </div>
         </div>
 
         {/* Elegant Footer */}
-        <footer className="pb-12 text-center">
+        <footer className="pb-8 text-center animate-in fade-in slide-in-from-bottom duration-1000">
           <p className="text-sm text-muted-foreground font-light tracking-wide mb-2">
             Click each rose to reveal a message
           </p>

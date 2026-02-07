@@ -31,7 +31,7 @@ export default function RoseMessage({ roseIndex, message, onBack }: RoseMessageP
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      <div className="relative z-10 max-w-2xl w-full">
+      <div className="relative z-10 max-w-2xl w-full animate-in fade-in duration-700">
         {/* Back button */}
         <button
           onClick={onBack}
