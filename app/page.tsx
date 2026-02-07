@@ -11,6 +11,7 @@ import LoveCalculator from '@/components/love-calculator';
 import ShareButton from '@/components/share-button';
 import EasterEggs from '@/components/easter-eggs';
 import Rose3D from '@/components/rose-3d';
+import RoseButtons from '@/app/roses';
 
 export default function Home() {
   const [selectedRose, setSelectedRose] = useState<number | null>(null);
