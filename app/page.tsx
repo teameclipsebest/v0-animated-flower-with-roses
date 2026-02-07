@@ -88,43 +88,67 @@ export default function Home() {
         />
       </audio>
 
-      {/* Premium animated background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+      {/* Premium animated background with multiple gradient orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 -right-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 left-1/2 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Premium Header */}
-        <header className="pt-16 pb-12 text-center px-4 animate-in fade-in slide-in-from-top duration-1000">
-          <div className="space-y-8">
-            {/* Decorative top accent */}
-            <div className="flex justify-center gap-1">
-              <span className="text-2xl animate-bounce" style={{ animationDelay: '0s' }}>✨</span>
-              <span className="text-2xl animate-bounce" style={{ animationDelay: '0.1s' }}>🌹</span>
-              <span className="text-2xl animate-bounce" style={{ animationDelay: '0.2s' }}>✨</span>
+        {/* Premium Header with enhanced typography */}
+        <header className="pt-20 pb-16 text-center px-4 animate-in fade-in slide-in-from-top duration-1000">
+          <div className="space-y-10">
+            {/* Decorative top accent with more roses */}
+            <div className="flex justify-center gap-2 md:gap-4">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <span
+                  key={i}
+                  className="text-2xl md:text-3xl animate-bounce"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  {i % 2 === 0 ? '🌹' : '✨'}
+                </span>
+              ))}
             </div>
 
             {/* Main title with serif styling */}
-            <div>
-              <p className="text-secondary font-light tracking-widest uppercase mb-4 text-sm">Happy Rose Day</p>
-              <h1 className="text-7xl md:text-8xl font-light leading-tight mb-2">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">
+            <div className="space-y-6">
+              <p className="text-accent font-light tracking-widest uppercase text-xs md:text-sm">Happy Rose Day</p>
+              <h1 className="text-8xl md:text-9xl font-light leading-tight">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-pulse">
                   Pooja
                 </span>
               </h1>
-              <div className="w-16 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-6"></div>
+              <div className="flex items-center justify-center gap-4">
+                <div className="h-px flex-1 max-w-xs bg-gradient-to-r from-transparent to-primary/70"></div>
+                <span className="text-xl">🌹</span>
+                <div className="h-px flex-1 max-w-xs bg-gradient-to-l from-transparent to-primary/70"></div>
+              </div>
             </div>
 
             {/* Romantic subtitle */}
-            <div className="space-y-4 max-w-2xl mx-auto">
-              <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
-                They say true feelings are hard to express in words. But you make everything easier for me.
+            <div className="space-y-5 max-w-3xl mx-auto">
+              <p className="text-lg md:text-2xl text-foreground font-light leading-relaxed">
+                True feelings are hard to express in words. But you make everything easier for me. 💕
               </p>
-              <p className="text-base text-muted-foreground font-light">
-                Here are 16 roses, each carrying a piece of my heart
+              <p className="text-base md:text-lg text-muted-foreground font-light">
+                Here are 16 roses, each carrying a message that words alone couldn't convey
               </p>
+            </div>
+
+            {/* Additional decorative roses */}
+            <div className="flex justify-center gap-2 md:gap-3 flex-wrap max-w-xl mx-auto">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <span
+                  key={i}
+                  className="text-xl md:text-2xl animate-bounce"
+                  style={{ animationDelay: `${(i % 5) * 0.15}s` }}
+                >
+                  🌹
+                </span>
+              ))}
             </div>
           </div>
         </header>
@@ -146,15 +170,37 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Elegant Footer */}
-        <footer className="pb-8 text-center animate-in fade-in slide-in-from-bottom duration-1000">
-          <p className="text-sm text-muted-foreground font-light tracking-wide mb-2">
-            Click each rose to reveal a message
-          </p>
-          <div className="flex justify-center gap-2 text-xs text-muted-foreground/70">
-            <span>✧</span>
-            <span>{messages.length} roses, endless feelings</span>
-            <span>✧</span>
+        {/* Enhanced Footer with decorative elements */}
+        <footer className="pb-16 text-center animate-in fade-in slide-in-from-bottom duration-1000 border-t border-primary/10">
+          <div className="space-y-6 pt-12">
+            {/* Decorative roses */}
+            <div className="flex justify-center gap-2">
+              <span className="text-2xl animate-bounce" style={{ animationDelay: '0s' }}>🌹</span>
+              <span className="text-2xl animate-bounce" style={{ animationDelay: '0.15s' }}>💕</span>
+              <span className="text-2xl animate-bounce" style={{ animationDelay: '0.3s' }}>🌹</span>
+            </div>
+
+            {/* Footer text */}
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground font-light tracking-wide">
+                Click each rose to reveal a special message 💝
+              </p>
+              <p className="text-xs text-muted-foreground/60 font-light">
+                {messages.length} Roses • {messages.length} Feelings • ∞ Love
+              </p>
+            </div>
+
+            {/* Additional decorative divider */}
+            <div className="flex items-center justify-center gap-3 max-w-xs mx-auto">
+              <div className="h-px flex-1 bg-gradient-to-r from-transparent to-primary/30"></div>
+              <span className="text-sm text-muted-foreground/50">✧</span>
+              <div className="h-px flex-1 bg-gradient-to-l from-transparent to-primary/30"></div>
+            </div>
+
+            {/* Call to action */}
+            <p className="text-xs text-muted-foreground/50 font-light">
+              Made with 💖 for someone truly special
+            </p>
           </div>
         </footer>
       </div>

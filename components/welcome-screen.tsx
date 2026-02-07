@@ -30,42 +30,67 @@ export default function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
             transform: showContent ? 'translateY(0)' : 'translateY(20px)',
           }}
         >
-          {/* Decorative top */}
-          <div className="mb-8">
-            <span className="text-6xl inline-block animate-bounce">🌹</span>
+          {/* Decorative top with animated roses */}
+          <div className="mb-12 flex justify-center gap-2">
+            <span className="text-5xl animate-bounce" style={{ animationDelay: '0s' }}>🌹</span>
+            <span className="text-5xl animate-bounce" style={{ animationDelay: '0.15s' }}>✨</span>
+            <span className="text-5xl animate-bounce" style={{ animationDelay: '0.3s' }}>🌹</span>
           </div>
 
           {/* Title */}
-          <h1 className="text-6xl md:text-7xl font-light mb-6">
+          <h1 className="text-7xl md:text-8xl font-light mb-2">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">
-              Happy Rose Day
+              Happy
+            </span>
+          </h1>
+          <h1 className="text-6xl md:text-7xl font-light mb-8">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-primary to-accent">
+              Rose Day
             </span>
           </h1>
 
+          {/* Decorative divider */}
+          <div className="w-20 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8"></div>
+
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-foreground font-light mb-8">
-            A special message for Pooja
+          <p className="text-2xl md:text-3xl text-foreground font-light mb-4">
+            For Pooja
+          </p>
+          <p className="text-lg text-accent font-light mb-12">
+            The most special person in my life
           </p>
 
           {/* Description */}
-          <p className="text-base md:text-lg text-muted-foreground font-light mb-12 leading-relaxed">
-            This is a collection of 16 roses, each carrying feelings I want to share with you. Click to enter and discover each one.
+          <p className="text-base md:text-lg text-muted-foreground font-light mb-4 leading-relaxed max-w-xl mx-auto">
+            I've prepared 16 roses, each one carrying a message that words alone couldn't convey. Every rose represents a moment, a feeling, and a piece of my heart.
+          </p>
+          <p className="text-sm text-muted-foreground/80 font-light mb-12">
+            Plus exclusive video edits just for you
           </p>
 
           {/* CTA Button */}
           <button
             onClick={onEnter}
-            className="group relative px-12 py-4 text-lg font-light uppercase tracking-widest text-white bg-gradient-to-r from-primary to-accent rounded-lg hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 transform hover:scale-105 active:scale-95"
+            className="group relative inline-block mb-8"
           >
-            <span className="relative z-10">Enter Garden</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full opacity-75 group-hover:opacity-100 blur transition-all duration-500 group-hover:blur-lg"></div>
+            <div className="relative px-14 py-4 bg-background rounded-full border border-primary/50 group-hover:border-primary transition-all duration-300">
+              <span className="text-sm uppercase tracking-widest font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent group-hover:from-accent group-hover:to-primary">
+                Enter the Garden
+              </span>
+            </div>
           </button>
 
+          {/* Animated arrow indicator */}
+          <div className="mt-6 animate-bounce">
+            <span className="text-2xl">↓</span>
+          </div>
+
           {/* Bottom decoration */}
-          <div className="mt-12 flex justify-center gap-2">
-            <span className="text-2xl animate-bounce" style={{ animationDelay: '0s' }}>✨</span>
-            <span className="text-2xl animate-bounce" style={{ animationDelay: '0.15s' }}>💕</span>
-            <span className="text-2xl animate-bounce" style={{ animationDelay: '0.3s' }}>✨</span>
+          <div className="mt-12 flex justify-center gap-3">
+            <span className="text-3xl">🌹</span>
+            <span className="text-3xl">💕</span>
+            <span className="text-3xl">🌹</span>
           </div>
         </div>
       </div>

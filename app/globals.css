@@ -65,39 +65,39 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 96%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 96%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 348 86% 58%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 45 100% 50%;
-    --secondary-foreground: 0 0% 10%;
-    --muted: 0 0% 35%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 348 100% 65%;
-    --accent-foreground: 0 0% 10%;
+    --background: 350 40% 8%;
+    --foreground: 0 0% 98%;
+    --card: 350 35% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 350 35% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 348 95% 62%;
+    --primary-foreground: 350 40% 8%;
+    --secondary: 350 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 350 20% 45%;
+    --muted-foreground: 350 15% 70%;
+    --accent: 15 95% 65%;
+    --accent-foreground: 350 40% 8%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 18%;
-    --input: 0 0% 14%;
-    --ring: 348 86% 58%;
-    --chart-1: 348 86% 58%;
-    --chart-2: 45 100% 50%;
-    --chart-3: 348 100% 65%;
-    --chart-4: 350 90% 65%;
-    --chart-5: 348 95% 70%;
-    --radius: 1rem;
+    --border: 350 30% 20%;
+    --input: 350 30% 15%;
+    --ring: 348 95% 62%;
+    --chart-1: 348 95% 62%;
+    --chart-2: 15 95% 65%;
+    --chart-3: 350 100% 55%;
+    --chart-4: 0 85% 60%;
+    --chart-5: 348 90% 65%;
+    --radius: 0.75rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-primary: 348 95% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 15 95% 65%;
+    --sidebar-accent-foreground: 350 40% 8%;
+    --sidebar-border: 350 40% 85%;
+    --sidebar-ring: 348 95% 62%;
   }
   .dark {
     --background: 0 0% 3.9%;
