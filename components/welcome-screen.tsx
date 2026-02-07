@@ -81,6 +81,18 @@ export default function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
             </div>
           </button>
 
+          <div className="fixed inset-0 z-[-1] pointer-events-none opacity-30">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              <source src="/folder/lv_7381485843887820050_20260202175730.mp4" type="video/mp4" />
+            </video>
+          </div>
+
           {/* Animated arrow indicator */}
           <div className="mt-6 animate-bounce">
             <span className="text-2xl">↓</span>

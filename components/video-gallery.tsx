@@ -6,13 +6,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const videos = [
   {
     id: 1,
-    url: 'https://media.discordapp.net/attachments/1325665650080743456/1469732639660310749/lv_7503953309502278965_20260202180306.mp4',
-    title: 'Edit 1',
+    url: '/folder/lv_7503953309502278965_20260202180306.mp4',
+    title: 'Special Moment 1',
   },
   {
     id: 2,
-    url: 'https://media.discordapp.net/attachments/1325665650080743456/1469732640390381780/lv_7381485843887820050_20260202175730.mp4',
-    title: 'Edit 2',
+    url: '/folder/lv_7381485843887820050_20260202175730.mp4',
+    title: 'Special Moment 2',
   },
 ];
 

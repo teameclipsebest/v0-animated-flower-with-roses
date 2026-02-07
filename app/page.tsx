@@ -73,20 +73,25 @@ export default function Home() {
         autoPlay
         loop
         className="hidden"
-        onLoadedMetadata={() => {
-          if (audioRef.current) {
-            audioRef.current.volume = 0.3;
-            audioRef.current.play().catch(() => {
-              console.log('[v0] Audio autoplay prevented');
-            });
-          }
-        }}
       >
         <source
-          src="data:audio/wav;base64,UklGRiYAAABXQVZFZm10IBAAAAABAAEAQB8AAAB9AAACABAAZGF0YQIAAAAAAA=="
-          type="audio/wav"
+          src="/folder/Blue-Yung-Kai.mp3"
+          type="audio/mpeg"
         />
       </audio>
+
+      {/* Background Videos */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-20">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/folder/lv_7503953309502278965_20260202180306.mp4" type="video/mp4" />
+        </video>
+      </div>
 
       {/* Premium animated background with multiple gradient orbs */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
