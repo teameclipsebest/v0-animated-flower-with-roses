@@ -115,8 +115,8 @@ export default function Home() {
 
             {/* Main title with serif styling */}
             <div className="space-y-6">
-              <p className="text-accent font-light tracking-widest uppercase text-xs md:text-sm">Happy Rose Day</p>
-              <h1 className="text-8xl md:text-9xl font-light leading-tight">
+              <p className="text-accent font-cursive tracking-widest uppercase text-xl md:text-2xl">Happy Rose Day</p>
+              <h1 className="text-8xl md:text-9xl font-serif font-light leading-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-pulse">
                   Pooja
                 </span>
