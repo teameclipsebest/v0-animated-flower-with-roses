@@ -10,8 +10,9 @@ import FallingPetals from '@/components/falling-petals';
 import LoveCalculator from '@/components/love-calculator';
 import ShareButton from '@/components/share-button';
 import EasterEggs from '@/components/easter-eggs';
-import Rose3D from '@/components/rose-3d';
+import VideoGallery from '@/components/video-gallery';
 import RoseButtons from '@/app/roses';
+import Rose3D from '@/components/rose-3d'; // Declare the Rose3D variable here
 
 export default function Home() {
   const [selectedRose, setSelectedRose] = useState<number | null>(null);
@@ -131,9 +132,9 @@ export default function Home() {
         {/* Rose Garden - centered and spacious */}
         <div className="flex-1 flex items-center justify-center px-4 py-8">
           <div className="w-full max-w-4xl space-y-12">
-            {/* 3D Rose Display */}
+            {/* Video Gallery Display */}
             <div className="animate-in fade-in slide-in-from-bottom duration-1000">
-              <Rose3D />
+              <VideoGallery />
             </div>
 
             {/* Rose Garden */}
