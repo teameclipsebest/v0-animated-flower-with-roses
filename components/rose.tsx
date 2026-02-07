@@ -173,16 +173,26 @@ export default function Rose({ index }: RoseProps) {
         )}
       </svg>
 
-      {/* Number indicator */}
-      <div className="absolute bottom-2 right-2 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        {index + 1}
+      {/* Number indicator with premium styling */}
+      <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-primary/20 text-primary text-xs font-light tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-2 py-1">
+        #{index + 1}
       </div>
 
-      {/* Floating heart on hover */}
+      {/* Premium glow effect on hover */}
       {isHovered && (
-        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-2xl animate-bounce">
-          ❤️
-        </div>
+        <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl animate-pulse pointer-events-none"></div>
+      )}
+
+      {/* Floating elements on hover */}
+      {isHovered && (
+        <>
+          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 text-2xl animate-bounce" style={{ animationDelay: '0s' }}>
+            ✨
+          </div>
+          <div className="absolute -top-6 -right-2 text-lg animate-bounce" style={{ animationDelay: '0.15s' }}>
+            💕
+          </div>
+        </>
       )}
     </div>
   );

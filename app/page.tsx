@@ -31,48 +31,63 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 overflow-hidden">
-      {/* Animated background elements */}
+    <main className="min-h-screen bg-background overflow-hidden">
+      {/* Premium animated background */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 -left-40 w-96 h-96 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-gradient-to-tl from-accent/20 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10">
-        {/* Header section */}
-        <header className="pt-12 pb-8 text-center px-4">
-          <div className="mb-6 inline-block">
-            <h1 className="text-6xl md:text-7xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-pink-600">
-                Happy Rose Day
-              </span>
-            </h1>
-          </div>
+      <div className="relative z-10 min-h-screen flex flex-col">
+        {/* Premium Header */}
+        <header className="pt-16 pb-20 text-center px-4">
+          <div className="space-y-8">
+            {/* Decorative top accent */}
+            <div className="flex justify-center gap-1">
+              <span className="text-2xl animate-bounce" style={{ animationDelay: '0s' }}>✨</span>
+              <span className="text-2xl animate-bounce" style={{ animationDelay: '0.1s' }}>🌹</span>
+              <span className="text-2xl animate-bounce" style={{ animationDelay: '0.2s' }}>✨</span>
+            </div>
 
-          <div className="space-y-4">
-            <p className="text-2xl md:text-3xl font-semibold text-foreground">
-              For Pooja 🌹
-            </p>
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-              I know words don't always come easy to me, but you make everything feel possible. Here are 16 roses, each holding a piece of my heart and the feelings I want you to know.
-            </p>
+            {/* Main title with serif styling */}
+            <div>
+              <p className="text-secondary font-light tracking-widest uppercase mb-4 text-sm">Happy Rose Day</p>
+              <h1 className="text-7xl md:text-8xl font-light leading-tight mb-2">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary">
+                  Pooja
+                </span>
+              </h1>
+              <div className="w-16 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-6"></div>
+            </div>
+
+            {/* Romantic subtitle */}
+            <div className="space-y-4 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-foreground font-light leading-relaxed">
+                They say true feelings are hard to express in words. But you make everything easier for me.
+              </p>
+              <p className="text-base text-muted-foreground font-light">
+                Here are 16 roses, each carrying a piece of my heart
+              </p>
+            </div>
           </div>
         </header>
 
-        {/* Rose garden */}
-        <div className="py-8">
+        {/* Rose Garden - centered and spacious */}
+        <div className="flex-1 flex items-center justify-center px-4 py-12">
           <RoseGarden onSelectRose={setSelectedRose} />
         </div>
 
-        {/* Footer */}
-        <footer className="text-center py-12">
-          <p className="text-sm md:text-base text-muted-foreground mb-2">
-            Click on each rose to read a special message
+        {/* Elegant Footer */}
+        <footer className="pb-12 text-center">
+          <p className="text-sm text-muted-foreground font-light tracking-wide mb-2">
+            Click each rose to reveal a message
           </p>
-          <p className="text-xs text-muted-foreground">
-            ✨ {messages.length} roses × infinite feelings ✨
-          </p>
+          <div className="flex justify-center gap-2 text-xs text-muted-foreground/70">
+            <span>✧</span>
+            <span>{messages.length} roses, endless feelings</span>
+            <span>✧</span>
+          </div>
         </footer>
       </div>
     </main>

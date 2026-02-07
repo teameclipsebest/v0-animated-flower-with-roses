@@ -24,15 +24,24 @@ export default function RoseMessage({ roseIndex, message, onBack }: RoseMessageP
   }, [displayedText, message]);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-rose-50 flex items-center justify-center p-4">
-      <div className="fixed inset-0 pointer-events-none opacity-30">
-        <div className="absolute top-0 -left-40 w-96 h-96 bg-gradient-to-br from-primary/30 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 -right-40 w-96 h-96 bg-gradient-to-tl from-accent/30 to-transparent rounded-full blur-3xl"></div>
+    <main className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+      {/* Premium animated background */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-2xl w-full">
+        {/* Back button */}
+        <button
+          onClick={onBack}
+          className="absolute -top-12 left-0 text-muted-foreground hover:text-foreground transition-colors text-sm uppercase tracking-widest font-light"
+        >
+          ← Back
+        </button>
+
         {/* Rose at the top */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-12">
           <svg
             viewBox="0 0 100 140"
             className="w-24 h-32 md:w-32 md:h-44"
@@ -156,45 +165,48 @@ export default function RoseMessage({ roseIndex, message, onBack }: RoseMessageP
           </svg>
         </div>
 
-        {/* Message card */}
-        <div className="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-16 backdrop-blur-md border border-white/50 max-w-2xl">
+        {/* Message card - Premium styling */}
+        <div className="bg-card/90 rounded-lg shadow-2xl p-8 md:p-16 backdrop-blur-xl border border-border/50 max-w-2xl">
           {/* Top decoration */}
-          <div className="text-center mb-8">
-            <div className="inline-flex gap-2 mb-6">
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className="text-2xl animate-bounce" style={{ animationDelay: `${i * 0.15}s` }}>
+          <div className="text-center mb-12">
+            <div className="inline-flex gap-2 mb-8">
+              {[...Array(3)].map((_, i) => (
+                <span key={i} className="text-3xl animate-bounce" style={{ animationDelay: `${i * 0.15}s` }}>
                   🌹
                 </span>
               ))}
             </div>
-            <h2 className="text-sm font-semibold text-primary uppercase tracking-widest">
-              Message {roseIndex + 1} of 16
-            </h2>
+            <div className="space-y-2">
+              <h2 className="text-xs font-light text-secondary uppercase tracking-widest">
+                Rose #{roseIndex + 1}
+              </h2>
+              <div className="w-8 h-px bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto"></div>
+            </div>
           </div>
 
           {/* Message text with typing animation */}
-          <div className="min-h-48 flex items-center justify-center mb-8">
-            <p className="text-lg md:text-xl leading-loose text-foreground text-center font-light">
+          <div className="min-h-56 flex items-center justify-center mb-12">
+            <p className="text-lg md:text-xl leading-relaxed text-foreground text-center font-light">
               {displayedText}
-              {!isComplete && <span className="animate-pulse text-primary text-2xl">|</span>}
+              {!isComplete && <span className="animate-pulse text-primary text-xl">|</span>}
             </p>
           </div>
 
           {/* Divider */}
-          <div className="w-12 h-1 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-8"></div>
+          <div className="w-12 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-12"></div>
 
-          {/* Button group */}
-          <div className="flex gap-3 justify-center flex-wrap">
+          {/* Button group - Premium styling */}
+          <div className="flex gap-4 justify-center flex-wrap">
             <button
               onClick={onBack}
-              className="px-6 py-3 bg-white border-2 border-primary text-primary rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 active:scale-95"
+              className="px-8 py-3 text-primary text-sm font-light uppercase tracking-widest border border-primary/50 rounded-lg hover:border-primary hover:bg-primary/5 transition-all duration-300"
             >
-              Back to Garden
+              Back
             </button>
             {isComplete && (
               <button
                 onClick={onBack}
-                className="px-6 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 active:scale-95"
+                className="px-8 py-3 text-white bg-gradient-to-r from-primary to-accent text-sm font-light uppercase tracking-widest rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105"
               >
                 Next Rose
               </button>
