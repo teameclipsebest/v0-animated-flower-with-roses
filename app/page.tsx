@@ -6,6 +6,11 @@ import RoseMessage from '@/components/rose-message';
 import WelcomeScreen from '@/components/welcome-screen';
 import Confetti from '@/components/confetti';
 import GalleryPreview from '@/components/gallery-preview';
+import FallingPetals from '@/components/falling-petals';
+import LoveCalculator from '@/components/love-calculator';
+import ShareButton from '@/components/share-button';
+import EasterEggs from '@/components/easter-eggs';
+import Rose3D from '@/components/rose-3d';
 
 export default function Home() {
   const [selectedRose, setSelectedRose] = useState<number | null>(null);
@@ -48,8 +53,17 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-background overflow-hidden">
+      {/* Falling petals */}
+      <FallingPetals />
+
+      {/* Easter eggs */}
+      <EasterEggs />
+
       {/* Confetti effect */}
       <Confetti trigger={showConfetti} />
+
+      {/* Share button */}
+      <ShareButton />
 
       {/* Background music */}
       <audio
@@ -115,9 +129,18 @@ export default function Home() {
 
         {/* Rose Garden - centered and spacious */}
         <div className="flex-1 flex items-center justify-center px-4 py-8">
-          <div className="w-full max-w-4xl">
+          <div className="w-full max-w-4xl space-y-12">
+            {/* 3D Rose Display */}
+            <div className="animate-in fade-in slide-in-from-bottom duration-1000">
+              <Rose3D />
+            </div>
+
+            {/* Rose Garden */}
             <RoseGarden onSelectRose={handleRoseSelect} />
             <GalleryPreview />
+
+            {/* Love Calculator */}
+            <LoveCalculator />
           </div>
         </div>
 
